@@ -4,6 +4,7 @@ from Pages.SignInPage import SignInPage
 from Pages.AccoutPage import AccountPage
 from time import sleep
 
+
 class SignInTest(TestBase):
     def test_signin_positive(self):
         mp = MainPage(self.driver)
@@ -63,7 +64,7 @@ class SignInTest(TestBase):
         sip.password_fill("SupaZupa")
         sip.passswordConfirmation_fill("ZupaSupa")
         sip.statementCheckBox_click()
-        sip.createAccoutButton_click()
-        assert sip.isVisiblePasswordMissmatchError(), "Error: error is not vivible!"
-        assert sip.getDiffPasswordsError() == "Prosimy upewnić się, że hasła pasują do siebie.", "Error: There should be mismatch password error!"
-        self.UtilsSelenium.make_screenshot(self.name)
+        #sip.createAccoutButton_click()
+        assert sip.isVisiblePasswordMissmatchError(), self.logger.error("Error: error is not visible!")
+        assert sip.getDiffPasswordsError() == "Prosimy upewnić się, że hasła pasują do siebie.", self.logger.error("Error: There should be mismatch password error!")
+        self.UtilsSelenium.take_screenshot(self.testName)

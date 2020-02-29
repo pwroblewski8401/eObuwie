@@ -3,13 +3,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Locators.Locators import MainPageLocators as mpl
 from Utils.UtilsSelenium import UtilsSelenium
+from Utils.Logger import Logger
 import unittest
 
 class TestBase(unittest.TestCase):
     def setUp(self) -> None:
-        self.name = unittest.TestCase.id(self)
+        self.testName = unittest.TestCase.id(self)
+        self.logger = Logger(self.testName)
+        if not self.logger:
+            self.fail("No logger!")
+        self.logger.info("Test started!")
         self.driver = webdriver.Chrome()
-        self.UtilsSelenium = UtilsSelenium(self.driver)
+        self.UtilsSelenium = UtilsSelenium(self.driver, self.logger)
         self.driver.get("https://www.eobuwie.com.pl/")
         WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(mpl.main_page_login_button))
         self.driver.maximize_window()
@@ -19,4 +24,5 @@ class TestBase(unittest.TestCase):
             accept_cookies_button.click()
 
     def tearDown(self) -> None:
+        self.logger.info(f"Test runner finished!")
         self.driver.quit()

@@ -2,13 +2,14 @@ from datetime import datetime
 import os
 
 class UtilsSelenium:
-    def __init__(self, _driver):
+    def __init__(self, _driver, logger):
+        self.logger = logger
         self.driver = _driver
 
     def get_webpage_title(self):
         return self.driver.title
 
-    def make_screenshot(self, test_name):
+    def take_screenshot(self, test_name):
         if(os.path.isdir(f'{os.getcwd()}/Artifacts/Screens/')):
             pass
             #TOLOG: dir exist
@@ -20,4 +21,6 @@ class UtilsSelenium:
         sceenshotFileName = f'{name}_{datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}.png'
         print(f'{dir}{sceenshotFileName}')
         self.driver.save_screenshot(f'{dir}{sceenshotFileName}')
+        self.logger.info(f"Taking screenshot! File: {dir}{sceenshotFileName}")
+
 

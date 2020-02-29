@@ -43,6 +43,9 @@ class SignInPage(BasePage):
         return self.driver.find_element(*sil.signin_page_email_input).find_element(*sil.signin_page_errors_locator).text
 
     def isVisiblePasswordMissmatchError(self):
-        return self.driver.find_element(*sil.signin_page_email_input).find_element(*sil.signin_page_errors_locator).is_displayed()
+        try:
+            return self.driver.find_element(*sil.signin_page_email_input).find_element(*sil.signin_page_errors_locator).is_displayed()
+        except:
+            return False
 
 
