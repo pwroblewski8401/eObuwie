@@ -15,7 +15,6 @@ class UtilsSelenium:
         else:
             os.mkdir(f'{os.getcwd()}/Artifacts/Screens/')
 
-
         name = str.replace(test_name, ".", "_")
         dir = 'Artifacts/Screens/'
         sceenshotFileName = f'{name}_{datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}.png'
