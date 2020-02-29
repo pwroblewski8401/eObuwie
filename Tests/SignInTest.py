@@ -66,3 +66,4 @@ class SignInTest(TestBase):
         sip.createAccoutButton_click()
         assert sip.isVisiblePasswordMissmatchError(), "Error: error is not vivible!"
         assert sip.getDiffPasswordsError() == "Prosimy upewnić się, że hasła pasują do siebie.", "Error: There should be mismatch password error!"
+        self.UtilsSelenium.make_screenshot(self.name)

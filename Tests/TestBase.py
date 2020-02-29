@@ -7,6 +7,7 @@ import unittest
 
 class TestBase(unittest.TestCase):
     def setUp(self) -> None:
+        self.name = unittest.TestCase.id(self)
         self.driver = webdriver.Chrome()
         self.UtilsSelenium = UtilsSelenium(self.driver)
         self.driver.get("https://www.eobuwie.com.pl/")
