@@ -17,6 +17,7 @@ class SearchingAndProductsTests(TestBase):
         self.UtilsSelenium.take_screenshot(self.testName)
         assert 'Wyniki wyszukiwania dla Addidas campus' in search_result, self.logger.error(f'Searching test fail for: {search_sentence}!')
 
+class SearchingAndProductsCardsTest(TestBase):
     def test_product_card(self):
         search_sentence = "Addidas campus"
         product = "Campus W DB3277"

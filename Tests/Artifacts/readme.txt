@@ -1,1 +1,0 @@
-Folder for tests artifacts like screens and logs

@@ -13,7 +13,7 @@ class SignInTest(TestBase):
         sip = SignInPage(self.driver)
         sip.name_fill("Imie")
         sip.lastName_fill("LastName")
-        sip.email_fill("MailTestowy@email.com")
+        sip.email_fill("MailTestowy1@email.com")
         sip.password_fill("SupaZupa")
         sip.passswordConfirmation_fill("SupaZupa")
         sip.statementCheckBox_click()

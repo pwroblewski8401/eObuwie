@@ -10,14 +10,17 @@ class UtilsSelenium:
         return self.driver.title
 
     def take_screenshot(self, test_name):
-        if(os.path.isdir(f'{os.getcwd()}/Artifacts/Screens/')):
+        dirArtifact = f'{os.getcwd()}\\Artifacts\\'
+        if not os.path.isdir(dirArtifact):
+            os.mkdir(dirArtifact)
+        dir = f'{os.getcwd()}\\Artifacts\\Screens\\'
+        if(os.path.isdir(dir)):
             pass
             #TOLOG: dir exist
         else:
-            os.mkdir(f'{os.getcwd()}/Artifacts/Screens/')
+            os.mkdir(dir)
 
         name = str.replace(test_name, ".", "_")
-        dir = 'Artifacts/Screens/'
         sceenshotFileName = f'{name}_{datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}.png'
         print(f'{dir}{sceenshotFileName}')
         self.driver.save_screenshot(f'{dir}{sceenshotFileName}')

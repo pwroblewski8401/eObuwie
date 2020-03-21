@@ -4,8 +4,12 @@ import datetime
 
 class Logger:
     def __init__(self, testName):
+        dirArtifact = f'{os.getcwd()}\\Artifacts\\'
+        if not os.path.isdir(dirArtifact):
+            os.mkdir(dirArtifact)
         self.testName = testName
         logdir = f'{os.getcwd()}\\Artifacts\\Logs\\'
+        print(logdir)
         if not os.path.isdir(logdir):
             os.mkdir(logdir)
 
