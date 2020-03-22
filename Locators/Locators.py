@@ -9,6 +9,9 @@ class MainPageLocators:
 
 class LoginPageLocators:
     login_page_login_button = (By.XPATH, '//button[@data-testid="login-submit-button"]')
+    login_page_email_input = (By.XPATH, '//input[@data-testid="login-input-email"]')
+    login_page_password_input = (By.XPATH, '//input[@data-testid="login-input-password"]')
+    login_page_submit_button = (By.XPATH, '//button[@data-testid="login-submit-button"]')
 
 class SignInLocators:
     signin_page_name_input = (By.XPATH, '//input[@data-testid="register-first-name-field"]')
