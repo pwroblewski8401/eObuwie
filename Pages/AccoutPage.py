@@ -1,6 +1,4 @@
 from Pages.BasePage import BasePage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from Locators.Locators import MyAccountLocators as mal
 
 class AccountPage(BasePage):

@@ -2,8 +2,6 @@ from Pages.MainPage import MainPage
 from Tests.TestBase import TestBase
 from Pages.SearchPage import SearchPage
 from Pages.ProductPage import  ProductPage
-from time import sleep
-
 
 
 class SearchingAndProductsTests(TestBase):
@@ -16,6 +14,7 @@ class SearchingAndProductsTests(TestBase):
         search_result = sp.h1_pageTitle_text_get()
         self.UtilsSelenium.take_screenshot(self.testName)
         assert 'Wyniki wyszukiwania dla Addidas campus' in search_result, self.logger.error(f'Searching test fail for: {search_sentence}!')
+
 
 class SearchingAndProductsCardsTest(TestBase):
     def test_product_card(self):

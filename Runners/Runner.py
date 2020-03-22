@@ -1,8 +1,4 @@
 import unittest
-from selenium import webdriver
-import os
-from Tests.SearchingAndProductsTests import SearchingAndProductsTests
-
 
 
 def Runner(test_schema):
