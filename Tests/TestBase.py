@@ -5,6 +5,7 @@ from Locators.Locators import MainPageLocators as mpl
 from Utils.UtilsSelenium import UtilsSelenium
 from Utils.Logger import Logger
 import unittest
+import time
 
 class TestBase(unittest.TestCase):
     def setUp(self) -> None:
@@ -20,8 +21,9 @@ class TestBase(unittest.TestCase):
         self.driver.maximize_window()
         #assert self.driver.title == "Modne buty damskie, męskie, dziecięce oraz torebki  | eobuwie.pl", f"Loaded page in not main page. Title is {self.driver.title} and should be Modne buty damskie, męskie, dziecięce oraz torebki  | eobuwie.pl"
         accept_cookies_button = self.driver.find_element(*mpl.main_page_cookies_accept_button)
+        accept_cookies_close_button = self.driver.find_element(*mpl.main_page_cookies_close_button)
         if(accept_cookies_button.is_displayed()):
-            accept_cookies_button.click()
+            accept_cookies_close_button.click()
 
     def tearDown(self) -> None:
         self.logger.info(f"Test runner finished!")

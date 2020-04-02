@@ -1,14 +1,15 @@
 from Pages.MainPage import MainPage
 from Tests.TestBase import TestBase
 from Pages.SearchPage import SearchPage
-from Pages.ProductPage import  ProductPage
+from Pages.ProductPage import ProductPage
+from time import sleep
 
 
 class SearchingAndProductsTests(TestBase):
     def test_search(self):
         search_sentence = "Addidas campus"
         mp = MainPage(self.driver)
-        mp.searchboxInput_fill(search_sentence)
+        mp.searchboxInput_fill(search_sentence, True)
 
         sp = SearchPage(self.driver)
         search_result = sp.h1_pageTitle_text_get()
@@ -32,5 +33,20 @@ class SearchingAndProductsCardsTest(TestBase):
         print(f"Data to search: {data}")
         assert product in data, self.logger.error(f"Wrong product selected! Should be {product} is: {data}")
         self.UtilsSelenium.take_screenshot(self.testName)
+
+
+class SearchingAndProductsCardsTestList(TestBase):
+    def test_search_list(self):
+        search_sentence = "Nike airmax"
+        mp = MainPage(self.driver)
+        mp.searchboxInput_fill(search_sentence, False)
+        sleep(5)
+        list = mp.getQuickProcuctsList()
+        productName = mp.quickSearchListSelectIndex(2, list)
+        pp = ProductPage(self.driver)
+        nameOnProductCard = pp.product_information_get("Model:")
+        self.assertIn(nameOnProductCard, productName, f'{productName} not in {nameOnProductCard}')
+        sleep(5)
+
 
 

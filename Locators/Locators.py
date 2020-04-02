@@ -6,6 +6,11 @@ class MainPageLocators:
     main_page_signin_button = (By.XPATH, '//a[@data-testid="header-register-link"]')
     main_page_cookies_accept_button = (By.XPATH, '//button[@data-testid="permission-popup-accept"]')
     main_page_search_input = (By.XPATH, '//div[@class="header-content__search-wrapper"]//input[@data-testid="header-search-input-field"]')
+    main_page_search_productsFormQuickList = (By.XPATH, '//div[@class="quicksearch__product"]')
+    main_page_search_quickList = (By.XPATH, '//div[@class="quicksearch__left"]')
+    main_page_search_productsFormQuickListFirstName = (By.XPATH, '//div[@class="quicksearch__product-name-first"]')
+    main_page_search_productsFormQuickListSecondName = (By.XPATH, 'a/div[@class="quicksearch__product-name"]/div[@class="quicksearch__product-name-second"]')
+    main_page_cookies_close_button = (By.XPATH, '//button[@class="popup__button"]')
 
 class LoginPageLocators:
     login_page_login_button = (By.XPATH, '//button[@data-testid="login-submit-button"]')
@@ -23,6 +28,7 @@ class SignInLocators:
     singin_page_statement_checkbox = (By.XPATH, '//input[@data-testid="register-statement-checkbox"]')
     signin_page_create_account_button = (By.XPATH, '//button[@data-testid="register-create-account-button"]')
     signin_page_errors_locator = (By.XPATH, '//span[@class="help-block form-error"]')
+
 
 class MyAccountLocators:
     myaccount_page_title_div = (By.XPATH, '//div[@class="page-title"]')

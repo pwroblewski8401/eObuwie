@@ -5,7 +5,7 @@ def start():
     ts = Suits.TestSuits()
 
     #to change test suits just select ts.*****
-    tests = ts.search_tests()
+    tests = ts.all_Tests()
     Runner.Runner(tests)
 
 

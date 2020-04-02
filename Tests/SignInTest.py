@@ -23,7 +23,7 @@ class SignInTest(TestBase):
         ap = AccountPage(self.driver)
         assert ap.h1_pageTitle_get() == 'Witaj, Imie!', "Account was not corretly created!"
         print(ap.h1_pageTitle_get())
-        sleep(10)
+        sleep(5)
 
     def test_signin_negative_wrong_email(self):
         mp = MainPage(self.driver)
