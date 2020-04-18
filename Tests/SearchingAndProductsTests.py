@@ -22,7 +22,7 @@ class SearchingAndProductsCardsTest(TestBase):
         search_sentence = "Addidas campus"
         product = "Campus W DB3277"
         mp = MainPage(self.driver)
-        mp.searchbox_input_fill(search_sentence)
+        mp.searchbox_input_fill(search_sentence, True)
 
         sp = SearchPage(self.driver)
         self.logger.info(f"Found product {sp.search_count_get()}")
