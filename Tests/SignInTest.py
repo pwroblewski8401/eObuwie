@@ -8,63 +8,63 @@ from time import sleep
 class SignInTest(TestBase):
     def test_signin_positive(self):
         mp = MainPage(self.driver)
-        mp.signinButton_click()
+        mp.signin_button_click()
 
         sip = SignInPage(self.driver)
         sip.name_fill("Imie")
-        sip.lastName_fill("LastName")
+        sip.last_name_fill("LastName")
         sip.email_fill("MailTestowy1@email.com")
         sip.password_fill("SupaZupa")
-        sip.passswordConfirmation_fill("SupaZupa")
-        sip.statementCheckBox_click()
-        sip.newsletterCheckBox_click()
-        sip.createAccoutButton_click()
+        sip.password_confirmation_fill("SupaZupa")
+        sip.statement_checkbox_click()
+        sip.newsletter_checkbox_click()
+        sip.create_accout_button_click()
 
         ap = AccountPage(self.driver)
-        assert ap.h1_pageTitle_get() == 'Witaj, Imie!', "Account was not corretly created!"
-        print(ap.h1_pageTitle_get())
+        assert ap.h1_page_title_get() == 'Witaj, Imie!', "Account was not corretly created!"
+        print(ap.h1_page_title_get())
         sleep(5)
 
     def test_signin_negative_wrong_email(self):
         mp = MainPage(self.driver)
-        mp.signinButton_click()
+        mp.signin_button_click()
 
         sip = SignInPage(self.driver)
         sip.name_fill("Imie")
-        sip.lastName_fill("LastName")
+        sip.last_name_fill("LastName")
         sip.email_fill("test")
         sip.password_fill("SupaZupa")
-        sip.passswordConfirmation_fill("SupaZupa")
-        sip.statementCheckBox_click()
-        sip.createAccoutButton_click()
-        assert sip.getEmailError() == "Wprowadzono niepoprawny adres e-mail", "There is no email error!"
+        sip.password_confirmation_fill("SupaZupa")
+        sip.statement_checkbox_click()
+        sip.create_accout_button_click()
+        assert sip.get_email_error() == "Wprowadzono niepoprawny adres e-mail", "There is no email error!"
 
     def test_no_statement(self):
         mp = MainPage(self.driver)
-        mp.signinButton_click()
+        mp.signin_button_click()
 
         sip = SignInPage(self.driver)
         sip.name_fill("Name")
-        sip.lastName_fill("LastName")
+        sip.last_name_fill("LastName")
         sip.email_fill("email@email.com")
         sip.password_fill("SupaZupa")
-        sip.passswordConfirmation_fill("SupaZupa")
-        sip.newsletterCheckBox_click()
-        sip.createAccoutButton_click()
+        sip.password_confirmation_fill("SupaZupa")
+        sip.newsletter_checkbox_click()
+        sip.create_accout_button_click()
         assert self.UtilsSelenium.get_webpage_title() == "Utwórz nowe konto klienta | eobuwie.pl", f"Error: Page should be still on create account page and the title should be: Utwórz nowe konto klienta | eobuwie.pl, but it is {self.UtilsSelenium.get_webpage_title()} instead"
 
     def test_diff_passwords(self):
         mp = MainPage(self.driver)
-        mp.signinButton_click()
+        mp.signin_button_click()
 
         sip = SignInPage(self.driver)
         sip.name_fill("Name")
-        sip.lastName_fill("LastName")
+        sip.last_name_fill("LastName")
         sip.email_fill("email.test@wp.pl")
         sip.password_fill("SupaZupa")
-        sip.passswordConfirmation_fill("ZupaSupa")
-        sip.statementCheckBox_click()
+        sip.password_confirmation_fill("ZupaSupa")
+        sip.statement_checkbox_click()
         #sip.createAccoutButton_click()
-        assert sip.isVisiblePasswordMissmatchError(), self.logger.error("Error: error is not visible!")
-        assert sip.getDiffPasswordsError() == "Prosimy upewnić się, że hasła pasują do siebie.", self.logger.error("Error: There should be mismatch password error!")
-        self.UtilsSelenium.take_screenshot(self.testName)
+        assert sip.is_visible_password_missmatch_error(), self.logger.error("Error: error is not visible!")
+        assert sip.get_diff_password_error() == "Prosimy upewnić się, że hasła pasują do siebie.", self.logger.error("Error: There should be mismatch password error!")
+        self.UtilsSelenium.takeScreenshot(self.testName)

@@ -6,13 +6,13 @@ from Pages.BasePage import BasePage
 
 
 class SearchPage(BasePage):
-    def h1_pageTitle_text_get(self):
+    def h1_page_title_text_get(self):
         return self.driver.find_element(*spl.search_page_h1).text
 
     def search_count_get(self):
         return len(self.driver.find_elements(*spl.search_page_searched_products))
 
-    def search_page_product_bySecondName_click(self, second_name):
+    def search_page_product_by_second_name_click(self, second_name):
         products_second_names = self.driver.find_elements(*spl.search_page_searched_product_second_names)
         for name in products_second_names:
             if second_name in name.text:

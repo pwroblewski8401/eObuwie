@@ -10,4 +10,3 @@ class ProductPage(BasePage):
             d = info.find_element(*ppl.product_page_information_data)
             if type in i.text:
                 return d.text
-                break
