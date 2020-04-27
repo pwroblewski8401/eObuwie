@@ -11,6 +11,8 @@ class MainPageLocators:
     main_page_search_productsFormQuickListFirstName = (By.XPATH, '//div[@class="quicksearch__product-name-first"]')
     main_page_search_productsFormQuickListSecondName = (By.XPATH, 'a/div[@class="quicksearch__product-name"]/div[@class="quicksearch__product-name-second"]')
     main_page_cookies_close_button = (By.XPATH, '//button[@class="popup__button"]')
+    main_page_cart_button =(By.XPATH, '//button[@class="header-cart-button e-button"]')
+    main_page_see_cart_button = (By.XPATH, '//div[@class="minicart"]/a[@href="https://www.eobuwie.com.pl/checkout/cart/"]')
 
 class LoginPageLocators:
     login_page_login_button = (By.XPATH, '//button[@data-testid="login-submit-button"]')
@@ -43,3 +45,16 @@ class ProductPageLocators:
     product_page_list = (By.XPATH, '//div[@class="product-details"]//ul//li')
     product_page_information_label = (By.XPATH, './/div[@class="label"]')
     product_page_information_data = (By.XPATH, './/div[@class="data"]')
+    product_page_add_to_cart = (By.XPATH, '//button[@data-testid="product-add-to-cart-button"]')
+    product_page_search_input = (By.XPATH, '//div[@class="header-content__search-wrapper"]//input[@data-testid="header-search-input-field"]')
+    product_page_search_productsFormQuickListSecondName = (By.XPATH, 'a/div[@class="quicksearch__product-name"]/div[@class="quicksearch__product-name-second"]')
+    product_page_close_basket_popup_button = (By.XPATH, '//button[@data-testid="product-go-to-cart-close-button"]')
+    product_page_size_selector = (By.XPATH, '//div[@data-testid="product-size-select-desktop"]')
+    product_page_sizes_ul = (By.XPATH, '//ul[@class="dropdown-menu"]')
+    product_page_sizes = (By.XPATH, '//ul[@class="dropdown-menu"]/li')
+    product_page_cart_button =(By.XPATH, '//button[@class="header-cart-button e-button"]')
+    product_page_availability = (By.XPATH, '//div[@class="product-status__label"]')
+
+class CartPageLocators:
+    cart_page_product_in_cart = (By.XPATH, '//div[@class="cart-item__info"]')
+    cart_page_product_model_in_cart = (By.XPATH, '//div[@class="cart-item__name-second"]')

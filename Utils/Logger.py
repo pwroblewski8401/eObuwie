@@ -13,7 +13,7 @@ class Logger:
         if not os.path.isdir(logdir):
             os.mkdir(logdir)
 
-        self.logfile_name = f'{logdir}{testName}_{datetime.datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}'
+        self.logfile_name = f'{logdir}{testName[:15]}_{datetime.datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}'
         print(self.logfile_name)
         file = open(self.logfile_name, "w")
         file.close()

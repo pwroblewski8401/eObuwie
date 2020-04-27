@@ -7,23 +7,24 @@ from time import sleep
 
 class SignInTest(TestBase):
     def test_signin_positive(self):
-        mp = MainPage(self.driver)
-        mp.signin_button_click()
-
-        sip = SignInPage(self.driver)
-        sip.name_fill("Imie")
-        sip.last_name_fill("LastName")
-        sip.email_fill("MailTestowy1@email.com")
-        sip.password_fill("SupaZupa")
-        sip.password_confirmation_fill("SupaZupa")
-        sip.statement_checkbox_click()
-        sip.newsletter_checkbox_click()
-        sip.create_accout_button_click()
-
-        ap = AccountPage(self.driver)
-        assert ap.h1_page_title_get() == 'Witaj, Imie!', "Account was not corretly created!"
-        print(ap.h1_page_title_get())
-        sleep(5)
+        print("INFO : This test is disabled - we don't want to create dummy accounts on the page!")
+        # mp = MainPage(self.driver)
+        # mp.signin_button_click()
+        #
+        # sip = SignInPage(self.driver)
+        # sip.name_fill("Imie")
+        # sip.last_name_fill("LastName")
+        # sip.email_fill("MailTestowy1@email.com")
+        # sip.password_fill("SupaZupa")
+        # sip.password_confirmation_fill("SupaZupa")
+        # sip.statement_checkbox_click()
+        # sip.newsletter_checkbox_click()
+        # sip.create_accout_button_click()
+        #
+        # ap = AccountPage(self.driver)
+        # assert ap.h1_page_title_get() == 'Witaj, Imie!', "Account was not corretly created!"
+        # print(ap.h1_page_title_get())
+        # sleep(5)
 
     def test_signin_negative_wrong_email(self):
         mp = MainPage(self.driver)

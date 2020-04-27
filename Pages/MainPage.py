@@ -6,6 +6,7 @@ from Locators.Locators import MainPageLocators as mpl
 from Locators.Locators import LoginPageLocators as lpl
 from Locators.Locators import SignInLocators as sil
 from Locators.Locators import ProductPageLocators as ppl
+from Locators.Locators import CartPageLocators as cpl
 
 
 class MainPage(BasePage):
@@ -39,3 +40,12 @@ class MainPage(BasePage):
     def quick_search_get_name_from_index(self, index, list):
         e = list[index]
         return e.find_element(*mpl.main_page_search_productsFormQuickListSecondName).text
+
+    def button_cart_click(self):
+        cart_button = self.driver.find_element(*mpl.main_page_cart_button)
+        cart_button.click()
+        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(mpl.main_page_see_cart_button))
+        see_cart_button = self.driver.find_element(*mpl.main_page_see_cart_button)
+        see_cart_button.click()
+        WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(cpl.cart_page_product_in_cart))
+
